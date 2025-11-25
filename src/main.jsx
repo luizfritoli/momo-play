@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import Jokenpo from "./components/jokenpo/Jokenpo.jsx";
+import TicTacToe from "./components/tictactoe/TicTacToe.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/jokenpo",
     element: <Jokenpo />,
+  },
+  {
+    path: "/tictactoe",
+    element: <TicTacToe />,
   },
 ]);
 
