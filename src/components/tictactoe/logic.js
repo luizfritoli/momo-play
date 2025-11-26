@@ -13,7 +13,6 @@ export const afterUserTurn = (turn, setTurn, setBoard) => {
 
     setTimeout(() => {
       const pcOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-      const eArray = [0,1,2]
 
       let pcChoice = pcOptions[Math.floor(Math.random() * pcOptions.length)];
       let sort = null
@@ -24,8 +23,8 @@ export const afterUserTurn = (turn, setTurn, setBoard) => {
         const newBoard = [...prevBoard];
 
         if (newBoard[0] === "X" && newBoard[1] === "X" && newBoard[2] === null) {
-          sort = nArray[Math.floor(Math.random() * nArray.length)];
-          sort === 1 ? pcChoice = 2 : pcChoice = pcOptions[Math.floor(Math.random() * 4)] ;
+          sort = pcOptions[Math.floor(Math.random() * 2)];
+          sort === 1 ? pcChoice = 2 : pcChoice = pcOptions[Math.floor(Math.random() * pcOptions.length)] ;
         } else if (newBoard[0] === "X" && newBoard[3] === "X" && newBoard[6] === null) {
           pcChoice = 6;
         } else {
