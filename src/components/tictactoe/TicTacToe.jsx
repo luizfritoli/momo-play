@@ -1,36 +1,9 @@
 import { useState, useEffect } from "react";
+import { afterUserTurn } from "./logic";
+import { useGameLogic } from "./logic";
 
 const TicTacToe = () => {
-  const [board, setBoard] = useState([null, null, null, null, null, null, null, null, null]);
-  const [turn, setTurn] = useState("USER-TURN");
-
-  const afterUserTurn = () => {
-    if (turn === "USER-TURN") {
-      setTurn("COMPUTER-TURN");
-
-        setTimeout(() => {
-
-        const pcOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-
-        const pcChoice = pcOptions[Math.floor(Math.random() * pcOptions.length)];
-
-        console.log("O computador escolheu!", pcChoice);
-
-    
-        setBoard(prevBoard => {
-        const newBoard = [...prevBoard];
-        newBoard[pcChoice] = "O";
-        return newBoard
-        });
-
-        setTurn("USER-TURN");
-        console.log(turn);
-      }, 4000);
-
-    } else {
-      setTurn("USER-TURN");
-    }
-  };
+  const { board, turn, setBoard, setTurn } = useGameLogic();
 
   return (
     <div className="h-screen w-[100%] flex justify-center items-center">
@@ -40,14 +13,14 @@ const TicTacToe = () => {
             key={index}
             className="border-4 border-black h-16 w-16 justify-center items-center flex cursor-pointer"
             onClick={() => {
-                if(turn === "USER-TURN") {
+              if (turn === "USER-TURN") {
                 const newBoard = [...board];
-                 newBoard[index] = "X";
-                 setBoard(newBoard);
-                 afterUserTurn();
-                } else {
-                    return 
-                }
+                newBoard[index] = "X";
+                setBoard(newBoard);
+                afterUserTurn(turn, setTurn, setBoard);
+              } else {
+                return;
+              }
             }}
           >
             {a}
