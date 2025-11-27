@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { afterUserTurn } from "./logic";
 import { useGameLogic } from "./logic";
 
