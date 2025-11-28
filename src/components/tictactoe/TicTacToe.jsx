@@ -1,8 +1,8 @@
 import { afterUserTurn } from "./logic";
-import { useGameLogic } from "./logic";
+import { useGameLogic } from "../../store/useGameLogic";
 
 const TicTacToe = () => {
-  const { board, turn, setBoard, setTurn } = useGameLogic();
+  const { board, turn, setBoard, setTurn, winner, setWinner } = useGameLogic();
 
   return (
     <div className="h-screen w-[100%] flex justify-center items-center">
@@ -16,7 +16,7 @@ const TicTacToe = () => {
                 const newBoard = [...board];
                 newBoard[index] = "X";
                 setBoard(newBoard);
-                afterUserTurn(turn, setTurn, setBoard);
+                afterUserTurn(turn, setTurn, setBoard, setWinner, winner);
               } else {
                 return;
               }
