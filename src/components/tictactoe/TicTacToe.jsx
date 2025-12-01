@@ -11,6 +11,7 @@ const TicTacToe = () => {
           <span
             key={index}
             className="border-4 border-black h-16 w-16 justify-center items-center flex cursor-pointer"
+            disabled={winner !== null || turn !== "USER-TURN"}
             onClick={() => {
               if (turn === "USER-TURN") {
                 const newBoard = [...board];
