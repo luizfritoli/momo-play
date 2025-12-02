@@ -11,7 +11,7 @@ const WINNING_LINES = [
 
 const endGame = (setTurn, winner) => {
   setTurn(null);
-  alert(`O vencedor é ${winner}!!!!`);
+  console.log(`O vencedor é ${winner}!!!!`);
 };
 
 const checkWinner = (board) => {
@@ -174,6 +174,6 @@ export const afterUserTurn = (turn, setTurn, setBoard) => {
 
         return newBoard;
       });
-    }, 1500);
+    }, 400);
   }
 };
