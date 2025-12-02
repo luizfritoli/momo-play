@@ -2,7 +2,7 @@ import { afterUserTurn } from "./logic";
 import { useGameLogic } from "../../store/useGameLogic";
 
 const TicTacToe = () => {
-  const { board, turn, setBoard, setTurn, winner, setWinner } = useGameLogic();
+  const { board, turn, setBoard, setTurn } = useGameLogic();
 
   return (
     <div className="h-screen w-[100%] flex justify-center items-center">
@@ -11,13 +11,16 @@ const TicTacToe = () => {
           <span
             key={index}
             className="border-4 border-black h-16 w-16 justify-center items-center flex cursor-pointer"
-            disabled={winner !== null || turn !== "USER-TURN"}
+            disabled={turn !== "USER-TURN"}
             onClick={() => {
               if (turn === "USER-TURN") {
                 const newBoard = [...board];
+                if (newBoard[index] !== null) {
+                  return;
+                }
                 newBoard[index] = "X";
                 setBoard(newBoard);
-                afterUserTurn(turn, setTurn, setBoard, setWinner, winner);
+                afterUserTurn(turn, setTurn, setBoard);
               } else {
                 return;
               }

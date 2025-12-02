@@ -4,7 +4,6 @@ import { useState } from "react";
 export function useGameLogic() {
   const [board, setBoard] = useState([null, null, null, null, null, null, null, null, null]);
   const [turn, setTurn] = useState("USER-TURN");
-  const [winner, setWinner] = useState(null);
 
-  return { board, setBoard, turn, setTurn, winner, setWinner };
+  return { board, setBoard, turn, setTurn };
 }
