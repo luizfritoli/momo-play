@@ -1,4 +1,4 @@
-import { afterUserTurn } from "./logic";
+import { afterUserTurn, checkWinner } from "./logic";
 import { useGameLogic } from "../../store/useGameLogic";
 
 const TicTacToe = () => {
@@ -14,12 +14,17 @@ const TicTacToe = () => {
             disabled={turn !== "USER-TURN"}
             onClick={() => {
               if (turn === "USER-TURN") {
-                const newBoard = [...board];
-                if (newBoard[index] !== null) {
+                let winner = null
+                
+                setBoard((prev) => {
+                  const newBoard = [...prev]
+                  if (newBoard[index] !== null) {
                   return;
                 }
-                newBoard[index] = "X";
-                setBoard(newBoard);
+                    newBoard[index] = "X";
+                    return newBoard;
+                });
+                if (winner) return
                 afterUserTurn(turn, setTurn, setBoard);
               } else {
                 return;

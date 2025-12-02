@@ -14,7 +14,7 @@ const endGame = (setTurn, winner) => {
   console.log(`O vencedor é ${winner}!!!!`);
 };
 
-const checkWinner = (board) => {
+export const checkWinner = (board) => {
   for (const line of WINNING_LINES) {
     const [a, b, c] = line;
 
@@ -37,11 +37,14 @@ export const afterUserTurn = (turn, setTurn, setBoard) => {
       // Opções de escolhas do computador
       const pcOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
+
       console.log("O computador escolheu!", pcChoice);
+
+
       setBoard((prevBoard) => {
-        console.log(prevBoard);
         const newBoard = [...prevBoard];
         if (winner) return newBoard
+
         if (newBoard[0] === "X" && newBoard[1] === "X" && newBoard[2] === null) {
           sort = pcOptions[Math.floor(Math.random() * 2)];
           sort === 1
@@ -155,7 +158,7 @@ export const afterUserTurn = (turn, setTurn, setBoard) => {
             endGame(setTurn);
             return newBoard;
           }
-        } while (newBoard[pcChoice] !== null);
+        } while (newBoard[pcChoice] !== null && !winner);
 
         newBoard[pcChoice] = "O";
 
