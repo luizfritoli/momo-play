@@ -11,13 +11,14 @@ export const WINNING_LINES = [
   [2, 4, 6],
 ];
 
-export const endGame = (setTurn, winner) => {
+export const endGame = (setTurn, winner, setIsPlaying) => {
   setTurn(null);
   if (winner) {
     console.log(`O vencedor é ${winner}!!!!`);
   } else {
     console.log("Empate!")
   }
+  setIsPlaying(false)
 };
 
 export const checkWinner = (board) => {
@@ -34,13 +35,13 @@ export const checkWinner = (board) => {
   return null;
 };
 
-export const afterUserTurn = (turn, setTurn, setBoard, board) => {
+export const afterUserTurn = (turn, setTurn, setBoard, board, setIsPlaying) => {
   let winner = null;
   winner = checkWinner(board);
   if (winner) {
     console.log("O resultado é: " + winner);
     setTurn(null);
-    endGame(setTurn, winner);
+    endGame(setTurn, winner, setIsPlaying);
     return;
   }
   if (turn === "COMPUTER-TURN") {
