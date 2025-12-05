@@ -9,6 +9,12 @@ const TicTacToe = () => {
   useEffect(() => {
     const winner = checkWinner(board);
 
+    if (!winner && !board.includes(null)) {
+         console.log("Empate")
+         endGame(setTurn, winner)
+         return
+      }
+
     if (winner) {
       console.log("O resultado é: " + winner);
       endGame(setTurn, winner);
@@ -30,7 +36,6 @@ const TicTacToe = () => {
             className="border-4 border-black h-16 w-16 justify-center items-center flex cursor-pointer"
             onClick={() => {
               if (turn !== "USER-TURN") return;
-
               setBoard((prev) => {
                 if (prev[index] !== null) return prev;
 
