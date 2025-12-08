@@ -13,7 +13,7 @@ export const WINNING_LINES = [
 
 export const endGame = (setTurn, setIsPlaying) => {
   setTurn(null);
-  setIsPlaying(false)
+  setIsPlaying(false);
 };
 
 export const checkWinner = (board, winner) => {
@@ -28,9 +28,9 @@ export const checkWinner = (board, winner) => {
     }
   }
 
-   if (!winner && !board.includes(null)) {
-         return "DRAW"
-      }
+  if (!winner && !board.includes(null)) {
+    return "DRAW";
+  }
   return null;
 };
 
@@ -43,7 +43,6 @@ export const afterUserTurn = (turn, setTurn, setBoard, board, setIsPlaying) => {
     return;
   }
   if (turn === "COMPUTER-TURN") {
-
     // Opções de 8 casas do TicTaeToe para escolha aleatória
     const pcOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 

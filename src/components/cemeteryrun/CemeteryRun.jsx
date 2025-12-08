@@ -3,7 +3,7 @@ const CemeteryRun = () => {
     <section>
       <h1>Oi</h1>
     </section>
-  )
-}
+  );
+};
 
-export default CemeteryRun
+export default CemeteryRun;

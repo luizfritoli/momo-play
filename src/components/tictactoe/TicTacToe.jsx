@@ -7,23 +7,23 @@ const TicTacToe = () => {
   const { board, turn, setBoard, setTurn, isPlaying, setIsPlaying } = useGameLogic();
 
   const reset = () => {
-    setBoard([null, null, null, null, null, null, null, null, null])
-    let sort = ["USER-TURN", "COMPUTER-TURN"]
-    setTurn(sort[Math.floor(Math.random() * sort.length)])
-    setIsPlaying(true)
-  }
+    setBoard([null, null, null, null, null, null, null, null, null]);
+    let sort = ["USER-TURN", "COMPUTER-TURN"];
+    setTurn(sort[Math.floor(Math.random() * sort.length)]);
+    setIsPlaying(true);
+  };
 
   // Toda vez que o board mudar, verificamos o vencedor + turno
   useEffect(() => {
     // Analisar SE HÁ um vendor
-     const winner = checkWinner(board);
+    const winner = checkWinner(board);
 
-     // Se NÃO HÁ vencedor e nem espaço na tabela
+    // Se NÃO HÁ vencedor e nem espaço na tabela
     if (!winner && !board.includes(null)) {
-         endGame(setTurn, setIsPlaying)
-         checkWinner(board, winner)
-         return
-      }
+      endGame(setTurn, setIsPlaying);
+      checkWinner(board, winner);
+      return;
+    }
 
     // Se EXISTIR um vencedor
     if (winner) {
@@ -40,14 +40,16 @@ const TicTacToe = () => {
   return (
     <section className="h-screen w-[100%] flex justify-center items-center flex-col">
       <Activity mode={isPlaying ? "hidden" : "visible"}>
-        {checkWinner(board) === "X" ? 
-        "Você venceu!" : 
-        checkWinner(board) === "O" ? 
-        "O computador venceu!" : 
-        checkWinner(board) === "DRAW" ? 
-        "Empate" : 
-        null}
-        <button type="button" onClick={reset}>{checkWinner(board) ? "Jogar novamente" : "Jogar"}</button>
+        {checkWinner(board) === "X"
+          ? "Você venceu!"
+          : checkWinner(board) === "O"
+            ? "O computador venceu!"
+            : checkWinner(board) === "DRAW"
+              ? "Empate"
+              : null}
+        <button type="button" onClick={reset}>
+          {checkWinner(board) ? "Jogar novamente" : "Jogar"}
+        </button>
       </Activity>
       <div className="grid grid-rows-3 grid-cols-3 gap-[4em]">
         {board.map((cell, index) => (
