@@ -1,8 +1,9 @@
 import { useState, Activity, useEffect } from "react";
+import { useGameLogic } from "../../store/useGameLogic";
 
 const Jokenpo = () => {
   // Começar a partida pela escolha
-  const [isPlaying, setIsPlaying] = useState(false);
+  const {isPlaying, setIsPlaying }= useGameLogic();
 
   // Armazenar as escolhas do computador e do usuário
   const [playerChoice, setPlayerChoice] = useState(null);
@@ -38,7 +39,6 @@ const Jokenpo = () => {
 
     setPlayerChoice(choice);
     setComputerChoice(calcPcChoice);
-    console.log(`${choice} | ${calcPcChoice}`);
 
     setRunner(true);
   };
@@ -68,11 +68,12 @@ const Jokenpo = () => {
 
     return () => clearTimeout(visibility);
   }, [showMessage]);
+  
   return (
     <section className="flex flex-col justify-center items-center h-screen w-full">
       {/* Seção inicial do jogo */}
       <Activity mode={isPlaying ? "hidden" : "visible"}>
-        <div className="flex flex-col justify-center items-center h-[100%] w-full bg-green-700">
+        <div className="flex flex-col justify-center items-center h-screen w-full bg-[url('/images/1000285085.jpg')] bg-cover bg-center">
           <button
             type="button"
             className="bg-green-600 text-[2.5em] p-3 cursor-pointer rounded-lg w-[6em] 

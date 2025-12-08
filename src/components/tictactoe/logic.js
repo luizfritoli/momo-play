@@ -11,17 +11,12 @@ export const WINNING_LINES = [
   [2, 4, 6],
 ];
 
-export const endGame = (setTurn, winner, setIsPlaying) => {
+export const endGame = (setTurn, setIsPlaying) => {
   setTurn(null);
-  if (winner) {
-    console.log(`O vencedor é ${winner}!!!!`);
-  } else {
-    console.log("Empate!")
-  }
   setIsPlaying(false)
 };
 
-export const checkWinner = (board) => {
+export const checkWinner = (board, winner) => {
   // Captura todas as possibilidades de vitória
   for (const line of WINNING_LINES) {
     // Desestruturação dos INDEX
@@ -32,6 +27,10 @@ export const checkWinner = (board) => {
       return board[a];
     }
   }
+
+   if (!winner && !board.includes(null)) {
+         return "DRAW"
+      }
   return null;
 };
 
@@ -39,7 +38,6 @@ export const afterUserTurn = (turn, setTurn, setBoard, board, setIsPlaying) => {
   let winner = null;
   winner = checkWinner(board);
   if (winner) {
-    console.log("O resultado é: " + winner);
     setTurn(null);
     endGame(setTurn, winner, setIsPlaying);
     return;
