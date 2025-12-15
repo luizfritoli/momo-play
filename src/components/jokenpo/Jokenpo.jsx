@@ -1,7 +1,7 @@
 import { useState, Activity, useEffect } from "react";
 import { useGameLogic } from "../../store/useGameLogic";
 
-import { HiArrowNarrowDown } from "react-icons/hi";
+import { HiArrowNarrowUp } from "react-icons/hi";
 
 import paperImg from "../../assets/paper.png";
 import stoneImg from "../../assets/stone.png";
@@ -89,22 +89,22 @@ const Jokenpo = () => {
         <div className="flex flex-col justify-center items-center h-screen w-full bg-cover bg-center">
           <button
             type="button"
-            className="cursor-pointer mb-[4em] font-medium absolute top-0"
+            className="cursor-pointer mb-[4em] font-medium left-9 lg:left-0 absolute top-0 lg:translate-y-12"
             onClick={() => setIsPlaying(true)}
           >
-            <img src={startButton} alt="w-16 h-16" className="w-128 h-128 hover:brightness-115" />
+            <img src={startButton} alt="Start Button" className="w-128 h-128 hover:brightness-115" />
           </button>
           <div className="flex">
             <img
               src={scissorsImg}
               alt="Scissors"
-              className="w-24 h-24 translate-y-63 translate-x-15 brightness-50"
+              className="w-24 h-24 md:w-28 md:h-28 lg:w-24 lg:h-24 translate-y-60 translate-x-5 md:translate-y-70 lg:translate-y-55 lg:translate-x-15 xl:translate-y-63 xl:translate-x-15 brightness-50"
             />
-            <img src={paperImg} alt="Paper" className="w-36 h-32 translate-y-40 brightness-50" />
+            <img src={paperImg} alt="Paper" className="w-36 h-32 md:w-40 md:h-36 translate-y-40 -translate-x-7 md:translate-y-45 md:-translate-x-14 lg:translate-y-35 lg:translate-x-1 xl:translate-x-1 xl:translate-y-40 brightness-50" />
             <img
               src={stoneImg}
               alt="Stone"
-              className="w-24 h-24 translate-y-57 -translate-x-15 brightness-50"
+              className="w-24 h-24 md:w-28 md:h-28 translate-y-55 -translate-x-17 md:translate-y-70 md:-translate-x-30 lg:translate-y-54 lg:-translate-x-19 xl:translate-y-57 xl:-translate-x-15 brightness-50"
             />
           </div>
         </div>
@@ -112,28 +112,28 @@ const Jokenpo = () => {
       {/* Quando o usuário clicar em "JOGAR", o mesmo irá escolher as opções */}
       <Activity mode={isPlaying && !playerChoice ? "visible" : "hidden"}>
         <div className="flex flex-col justify-around items-center h-[100%] w-full bg-[url('/images/mobile-jokenpo-bg.jpg')] lg:bg-[url('/images/pc-jokenpo-bg.jpg')] bg-cover bg-center">
-          <h2 className="text-[2.4em] font-sans font-bold text-[#FFF] translate-y-6">FAÇA A SUA ESCOLHA!</h2>
+          <h2 className="text-[2.4em] text-center font-sans font-bold text-[#EFEF03] lg:translate-y-6">FAÇA A SUA ESCOLHA!</h2>
           <div className="flex">
             {/* Escolhas */}
             <button type="button" className="cursor-pointer" onClick={() => setChoice("Scissors")}>
               <img
                 src={scissorsImg}
                 alt="Scissors"
-                className="w-24 h-24 translate-y-24 translate-x-15 hover:brightness-150"
+                className="w-24 h-24 md:w-30 md:h-30 lg:h-24 lg:w-24 xl:w-24 xl:h-24 translate-x-5 lg:translate-y-18 lg:translate-x-15 xl:translate-y-23 xl:translate-x-15 hover:brightness-150"
               />
             </button>
             <button type="button" className="cursor-pointer" onClick={() => setChoice("Paper")}>
               <img
                 src={paperImg}
                 alt="Paper"
-                className="w-36 h-32 hover:brightness-150 translate-y-5"
+                className="w-36 h-32 md:w-40 md:h-36 -translate-y-16 -translate-x-7 lg:translate-y-4 lg:translate-x-1 hover:brightness-150 xl:translate-y-6 xl:translate-x-1"
               />
             </button>
             <button type="button" className="cursor-pointer" onClick={() => setChoice("Stone")}>
               <img
                 src={stoneImg}
                 alt="Stone"
-                className="w-24 h-24 hover:brightness-150 translate-y-18 -translate-x-15"
+                className="w-24 h-24 md:w-28 md:h-28 -translate-y-5 -translate-x-17 lg:translate-y-17 hover:brightness-150 xl:translate-y-18 xl:-translate-x-14"
               />
             </button>
           </div>
@@ -143,51 +143,51 @@ const Jokenpo = () => {
       <Activity mode={isPlaying && playerChoice ? "visible" : "hidden"}>
         <div className="flex flex-col gap-12 justify-around items-center h-[100%] w-full bg-[url('/images/mobile-jokenpo-bg.jpg')] lg:bg-[url('/images/pc-jokenpo-bg.jpg')] bg-cover bg-center">
           {showMessage && (
-            <div className="absolute top-[55%] left-[35%] flex flex-col justify-center items-center w-[15em] h-[6em]">
-            <h2 className="text-[#FFF] font-bold font-sans font-[2em]">
+            <div className="absolute bottom-[18%] md:right-[45%] md:bottom-[20%] lg:bottom-3 xl:bottom-[1%] right-[40%] xl:left-[35%] flex flex-col justify-center items-center w-[15em] h-[6em]">
+            <HiArrowNarrowUp className="w-16 h-16 text-[#A7E63A] lg:text-[3em] text-center"/> 
+            <h2 className="text-[#A7E63A] font-semibold font-sans lg:text-[1.5em] text-center xl:text-[0.8em] text-[1.3em]">
               Sua escolha foi{" "}
               {playerChoice === "Stone" ? "pedra" : playerChoice === "Paper" ? "papel" : "tesoura"}!
             </h2>
-            <HiArrowNarrowDown className="w-16 h-16 text-[#FFF] text-center"/> 
             </div>
           )}
-          <div className="flex gap-16 translate-y-50">
+          <div className="flex gap-16 translate-y-40 lg:translate-y-40">
             <span>
               {runner ? (
                 <img
                   src={closedHand}
                   alt="Choosing..."
-                  className="h-26 w-30 scale-x-[-1] animate-bounce"
+                  className="h-26 w-30 md:h-34 md:w-38 lg:h-26 lg:w-30 scale-x-[-1] animate-bounce"
                 />
               ) : (
                 <img
                   src={playerChoice === "Stone" ? closedHand : playerChoice === "Paper" ? paperHand : scissorsHand}
                   alt="Choosing..."
-                  className="h-26 w-30 scale-x-[-1]"
+                  className="h-26 w-30 md:h-34 md:w-38 lg:h-26 lg:w-30 scale-x-[-1]"
                 />
               )}
             </span>
             <span>
               {runner ? (
-                <img src={closedHand} alt="Choosing..." className="h-26 w-30 animate-bounce" />
+                <img src={closedHand} alt="Choosing..." className="h-26 w-30 md:h-34 md:w-38 lg:h-26 lg:w-30 animate-bounce" />
               ) : (
                  <img
                   src={computerChoice === "Stone" ? closedHand : computerChoice === "Paper" ? paperHand : scissorsHand}
                   alt="Choosing..."
-                  className="h-26 w-30"
+                  className="h-26 w-30 md:h-34 md:w-38 lg:h-26 lg:w-30"
                 />
               )}
             </span>
           </div>
           <div className="absolute top-[20%]">
             <div className="flex flex-col justify-center items-center gap-8">
-              <span className="text-[2.4em] font-sans font-bold text-[#FFF] translate-y-2">
+              <span className="text-[2.4em] font-sans font-bold text-center text-[#EFEF03] translate-y-2">
                 {runner
                   ? null
                   : winner === "USER"
                     ? "VOCÊ VENCEU!"
                     : winner === "COMPUTER"
-                      ? "O COMPUTADOR VENCEU!"
+                      ? "O PC VENCEU!"
                       : "EMPATE!!"}
               </span>
               {!runner && winner && (
