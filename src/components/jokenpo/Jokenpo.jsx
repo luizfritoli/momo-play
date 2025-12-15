@@ -1,7 +1,9 @@
 import { useState, Activity, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useGameLogic } from "../../store/useGameLogic";
 
 import { HiArrowNarrowUp } from "react-icons/hi";
+import { TiArrowLeftThick } from "react-icons/ti"
 
 import paperImg from "../../assets/paper.png";
 import stoneImg from "../../assets/stone.png";
@@ -83,10 +85,11 @@ const Jokenpo = () => {
   }, [showMessage]);
 
   return (
-    <section className="flex flex-col justify-center items-center h-screen bg-cover bg-center bg-[url('/images/mobile-jokenpo-bg.jpg')] lg:bg-[url('/images/pc-jokenpo-bg-full.jpg')] w-full">
+    <section className="flex flex-col justify-center items-center h-screen bg-cover bg-center bg-[url('/images/mobile-jokenpo-bg-full.jpg')] lg:bg-[url('/images/pc-jokenpo-bg-full.jpg')] w-full">
       {/* Seção inicial do jogo */}
       <Activity mode={isPlaying ? "hidden" : "visible"}>
         <div className="flex flex-col justify-center items-center h-screen w-full bg-cover bg-center">
+          <Link to="/" className="absolute top-0 right-0"><TiArrowLeftThick className="h-[30%] w-24 text-[#EFEF03]" /></Link>
           <button
             type="button"
             className="cursor-pointer mb-[4em] font-medium left-9 lg:left-0 absolute top-0 lg:translate-y-12"
