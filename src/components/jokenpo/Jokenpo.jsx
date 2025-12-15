@@ -143,7 +143,7 @@ const Jokenpo = () => {
       <Activity mode={isPlaying && playerChoice ? "visible" : "hidden"}>
         <div className="flex flex-col gap-12 justify-around items-center h-[100%] w-full bg-[url('/images/mobile-jokenpo-bg.jpg')] lg:bg-[url('/images/pc-jokenpo-bg.jpg')] bg-cover bg-center">
           {showMessage && (
-            <div className="absolute bottom-[5%] md:right-[45%] md:bottom-[20%] lg:bottom-3 xl:bottom-[1%] right-[40%] xl:left-[35%] flex flex-col justify-center items-center w-[15em] h-[6em]">
+            <div className="absolute bottom-0 md:right-[45%] md:bottom-[20%] lg:bottom-3 xl:bottom-[1%] right-[40%] xl:left-[35%] flex flex-col justify-center items-center w-[15em] h-[6em]">
             <HiArrowNarrowUp className="w-16 h-16 text-[#A7E63A] lg:text-[3em] text-center"/> 
             <h2 className="text-[#A7E63A] font-semibold font-sans lg:text-[1.5em] text-center xl:text-[0.8em] text-[1.3em]">
               Sua escolha foi{" "}
