@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 import { useGameLogic } from "../../store/useGameLogic";
 
 import { HiArrowNarrowUp } from "react-icons/hi";
-import { TiArrowLeftThick } from "react-icons/ti"
+import { TiArrowLeftThick } from "react-icons/ti";
 
-import paperImg from "../../assets/paper.png";
-import stoneImg from "../../assets/stone.png";
-import scissorsImg from "../../assets/scissors.png";
+import paperImg from "../../assets/jokenpo-assets/paper.png";
+import stoneImg from "../../assets/jokenpo-assets/stone.png";
+import scissorsImg from "../../assets/jokenpo-assets/scissors.png";
 
-import startButton from "../../assets/start-jokenpo.png"
+import startButton from "../../assets/jokenpo-assets/start-jokenpo.png";
 
-import closedHand from "../../assets/closed-hand.png"
-import paperHand from "../../assets/hand-paper.png"
-import scissorsHand from "../../assets/hand-scissors.png"
-
+import closedHand from "../../assets/jokenpo-assets/closed-hand.png";
+import paperHand from "../../assets/jokenpo-assets/hand-paper.png";
+import scissorsHand from "../../assets/jokenpo-assets/hand-scissors.png";
 
 const Jokenpo = () => {
   // Começar a partida pela escolha
@@ -89,13 +88,19 @@ const Jokenpo = () => {
       {/* Seção inicial do jogo */}
       <Activity mode={isPlaying ? "hidden" : "visible"}>
         <div className="flex flex-col justify-center items-center h-screen w-full bg-cover bg-center">
-          <Link to="/" className="absolute top-0 right-0"><TiArrowLeftThick className="h-[30%] w-24 text-[#EFEF03]" /></Link>
+          <Link to="/" className="absolute top-0 right-0">
+            <TiArrowLeftThick className="h-[30%] w-24 text-[#EFEF03]" />
+          </Link>
           <button
             type="button"
             className="cursor-pointer mb-[4em] font-medium left-9 lg:left-0 absolute top-0 lg:translate-y-12"
             onClick={() => setIsPlaying(true)}
           >
-            <img src={startButton} alt="Start Button" className="w-128 h-128 hover:brightness-115" />
+            <img
+              src={startButton}
+              alt="Start Button"
+              className="w-128 h-128 hover:brightness-115"
+            />
           </button>
           <div className="flex">
             <img
@@ -103,7 +108,11 @@ const Jokenpo = () => {
               alt="Scissors"
               className="w-24 h-24 md:w-28 md:h-28 lg:w-24 lg:h-24 translate-y-60 translate-x-5 md:translate-y-70 lg:translate-y-55 lg:translate-x-15 xl:translate-y-63 xl:translate-x-15 brightness-50"
             />
-            <img src={paperImg} alt="Paper" className="w-36 h-32 md:w-40 md:h-36 translate-y-40 -translate-x-7 md:translate-y-45 md:-translate-x-14 lg:translate-y-35 lg:translate-x-1 xl:translate-x-1 xl:translate-y-40 brightness-50" />
+            <img
+              src={paperImg}
+              alt="Paper"
+              className="w-36 h-32 md:w-40 md:h-36 translate-y-40 -translate-x-7 md:translate-y-45 md:-translate-x-14 lg:translate-y-35 lg:translate-x-1 xl:translate-x-1 xl:translate-y-40 brightness-50"
+            />
             <img
               src={stoneImg}
               alt="Stone"
@@ -115,7 +124,9 @@ const Jokenpo = () => {
       {/* Quando o usuário clicar em "JOGAR", o mesmo irá escolher as opções */}
       <Activity mode={isPlaying && !playerChoice ? "visible" : "hidden"}>
         <div className="flex flex-col justify-around items-center h-[100%] w-full bg-[url('/images/mobile-jokenpo-bg.jpg')] lg:bg-[url('/images/pc-jokenpo-bg.jpg')] bg-cover bg-center">
-          <h2 className="text-[2.4em] text-center font-sans font-bold text-[#EFEF03] lg:translate-y-6">FAÇA A SUA ESCOLHA!</h2>
+          <h2 className="text-[2.4em] text-center font-sans font-bold text-[#EFEF03] lg:translate-y-6">
+            FAÇA A SUA ESCOLHA!
+          </h2>
           <div className="flex">
             {/* Escolhas */}
             <button type="button" className="cursor-pointer" onClick={() => setChoice("Scissors")}>
@@ -147,11 +158,16 @@ const Jokenpo = () => {
         <div className="flex flex-col gap-12 justify-around items-center h-[100%] w-full bg-[url('/images/mobile-jokenpo-bg.jpg')] lg:bg-[url('/images/pc-jokenpo-bg.jpg')] bg-cover bg-center">
           {showMessage && (
             <div className="absolute bottom-0 md:right-[45%] md:bottom-[20%] lg:bottom-3 xl:bottom-[1%] right-[40%] xl:left-[35%] flex flex-col justify-center items-center w-[15em] h-[6em]">
-            <HiArrowNarrowUp className="w-16 h-16 text-[#A7E63A] lg:text-[3em] text-center"/> 
-            <h2 className="text-[#A7E63A] font-semibold font-sans lg:text-[1.5em] text-center xl:text-[0.8em] text-[1.3em]">
-              Sua escolha foi{" "}
-              {playerChoice === "Stone" ? "pedra" : playerChoice === "Paper" ? "papel" : "tesoura"}!
-            </h2>
+              <HiArrowNarrowUp className="w-16 h-16 text-[#A7E63A] lg:text-[3em] text-center" />
+              <h2 className="text-[#A7E63A] font-semibold font-sans lg:text-[1.5em] text-center xl:text-[0.8em] text-[1.3em]">
+                Sua escolha foi{" "}
+                {playerChoice === "Stone"
+                  ? "pedra"
+                  : playerChoice === "Paper"
+                    ? "papel"
+                    : "tesoura"}
+                !
+              </h2>
             </div>
           )}
           <div className="flex gap-16 translate-y-40 lg:translate-y-40">
@@ -164,7 +180,13 @@ const Jokenpo = () => {
                 />
               ) : (
                 <img
-                  src={playerChoice === "Stone" ? closedHand : playerChoice === "Paper" ? paperHand : scissorsHand}
+                  src={
+                    playerChoice === "Stone"
+                      ? closedHand
+                      : playerChoice === "Paper"
+                        ? paperHand
+                        : scissorsHand
+                  }
                   alt="Choosing..."
                   className="h-26 w-30 md:h-34 md:w-38 lg:h-26 lg:w-30 scale-x-[-1]"
                 />
@@ -172,10 +194,20 @@ const Jokenpo = () => {
             </span>
             <span>
               {runner ? (
-                <img src={closedHand} alt="Choosing..." className="h-26 w-30 md:h-34 md:w-38 lg:h-26 lg:w-30 animate-bounce" />
+                <img
+                  src={closedHand}
+                  alt="Choosing..."
+                  className="h-26 w-30 md:h-34 md:w-38 lg:h-26 lg:w-30 animate-bounce"
+                />
               ) : (
-                 <img
-                  src={computerChoice === "Stone" ? closedHand : computerChoice === "Paper" ? paperHand : scissorsHand}
+                <img
+                  src={
+                    computerChoice === "Stone"
+                      ? closedHand
+                      : computerChoice === "Paper"
+                        ? paperHand
+                        : scissorsHand
+                  }
                   alt="Choosing..."
                   className="h-26 w-30 md:h-34 md:w-38 lg:h-26 lg:w-30"
                 />
