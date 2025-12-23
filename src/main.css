@@ -19,6 +19,12 @@ body {
   animation: ob-animation 2s infinite linear;
 }
 
+.obstaculo2 {
+  position: absolute;
+  animation: ob2-animation 3s infinite linear;
+  top: 56%;
+}
+
 .obstaculo-paused {
   position: absolute;
   animation: none;
@@ -27,6 +33,16 @@ body {
 @keyframes ob-animation {
   from {
     right: -40px;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes ob2-animation {
+  from {
+    right: -2700px;
   }
 
   to {
