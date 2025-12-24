@@ -67,16 +67,15 @@ const CemeteryRun = () => {
         </Activity>
         {/* Personagem */}
         <div
-          className={`transition-all mb-0 pb-0 items-start ml-[4.5%] ease-out duration-800 
-      ${jump ? "-translate-y-100" : "translate-y-0"} ${crouch ? "bg-green-500 h-14 w-24" : "bg-red-500 w-24 h-24 "}`}
+          className={`transition-all mb-0 pb-0 items-start ml-[4.5%] ease-[cubic-bezier(0.3,0,0.6,1)] duration-100 
+      ${jump ? "-translate-y-50 lg:-translate-y-70" : "translate-y-0"} ${crouch ? "bg-green-500 w-10 h-8 lg:w-24 lg:h-22" : "bg-red-500 w-10 h-18 lg:w-24 lg:h-32 "}`}
           ref={characterRef}
         ></div>
         {/* Objeto 1 */}
-        <div className={isPlaying ? "obstaculo" : "obstaculo--paused invisible"}>
-          <img src={objectImg} alt="Object" ref={obPositionRef} />
+        <div className={isPlaying ? "obstaculo bg-green-500 h-18 w-12" : "obstaculo--paused invisible"} ref={obPositionRef}>
         </div>
         {/* Objeto 2 */}
-        <div className={isPlaying ? "obstaculo2 w-10 h-10" : "obstaculo--paused invisible"}>
+        <div className={isPlaying ? "obstaculo2 lg:top-[52%] top-[70%] w-5 h-5 lg:w-10 lg:h-10" : "obstaculo--paused invisible"}>
           <img src={objectImg} alt="Object2" ref={obPositionRef2} />
         </div>
       </div>
@@ -86,9 +85,11 @@ const CemeteryRun = () => {
         <Activity mode={isPlaying ? "visible" : "hidden"}>
           <button
             type="button"
-            className="absolute top-5 text-white left-10 text-[2em]"
+            className=" bg-red-500 absolute top-5 text-white left-10 w-24 h-24 text-[2em]"
             onMouseDown={setCrouchTrue}
             onMouseUp={setCrouchFalse}
+            onTouchStart={setCrouchTrue}
+            onTouchEnd={setCrouchFalse}
           >
             Agachar
           </button>

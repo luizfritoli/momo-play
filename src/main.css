@@ -16,13 +16,18 @@ body {
 
 .obstaculo {
   position: absolute;
+  right: -400px;
   animation: ob-animation 2s infinite linear;
+  animation-delay: 3s;
 }
 
 .obstaculo2 {
   position: absolute;
-  animation: ob2-animation 3s infinite linear;
-  top: 56%;
+  right: -3000px; 
+  opacity: 0;
+  visibility: hidden;
+  animation: ob2-animation 10s infinite;
+  animation-delay: 8s;
 }
 
 .obstaculo-paused {
@@ -32,7 +37,7 @@ body {
 
 @keyframes ob-animation {
   from {
-    right: -40px;
+    right: -400px;
   }
 
   to {
@@ -41,11 +46,34 @@ body {
 }
 
 @keyframes ob2-animation {
-  from {
-    right: -2700px;
+  /* 8 segundos de espera */
+  0% {
+    right: -3000px;
+    opacity: 0;
+    visibility: hidden;
   }
 
-  to {
+  80% {
+    right: -3000px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Aproximação lenta */
+  90% {
+    right: 30%;
+    opacity: 1;
+    visibility: visible;
+    animation-timing-function: ease-out;
+  }
+
+  /* Ataque */
+  100% {
     right: 100%;
+    opacity: 1;
+    visibility: visible;
+    animation-timing-function: ease-in;
   }
 }
+
+
