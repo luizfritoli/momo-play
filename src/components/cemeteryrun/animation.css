@@ -1,0 +1,58 @@
+.obstaculo {
+  position: absolute;
+  right: -400px;
+  animation: ob-animation 2s infinite linear;
+  animation-delay: 3s;
+}
+
+.obstaculo2 {
+  position: absolute;
+  right: -3000px;
+  opacity: 0;
+  visibility: hidden;
+  animation: ob2-animation 10s infinite;
+  animation-delay: 8s;
+}
+
+.obstaculo-paused {
+  position: absolute;
+  animation-play-state: paused;
+}
+
+@keyframes ob-animation {
+  from {
+    right: -400px;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes ob2-animation {
+  0% {
+    right: -3000px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  80% {
+    right: -3000px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  90% {
+    right: 30%;
+    opacity: 1;
+    visibility: visible;
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    right: 100%;
+    opacity: 1;
+    visibility: visible;
+    animation-timing-function: ease-out;
+  }
+}

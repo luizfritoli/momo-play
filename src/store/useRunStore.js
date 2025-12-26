@@ -4,21 +4,29 @@ import { create } from "zustand";
 export const useRunStore = create((set) => ({
   jump: false,
   crouch: false,
+  gameover: false,
 
-  setJumpTrue: () => {
+  startJump: () => {
     set({ jump: true });
   },
 
-  setJumpFalse: () => {
+  endJump: () => {
     set({ jump: false });
   },
 
-  setCrouchTrue: () => {
+  startCrouch: () => {
     set({ crouch: true });
   },
 
-  setCrouchFalse: () => {
+  endCrouch: () => {
     set({ crouch: false });
   },
-}));
 
+  setGameOver: () => {
+    set({ gameover: true });
+  },
+
+  resetGameOver: () => {
+    set({ gameover: false });
+  },
+}));

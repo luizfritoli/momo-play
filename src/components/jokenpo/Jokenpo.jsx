@@ -124,7 +124,7 @@ const Jokenpo = () => {
       {/* Quando o usuário clicar em "JOGAR", o mesmo irá escolher as opções */}
       <Activity mode={isPlaying && !playerChoice ? "visible" : "hidden"}>
         <div className="flex flex-col justify-around items-center h-[100%] w-full bg-[url('/images/mobile-jokenpo-bg.jpg')] lg:bg-[url('/images/pc-jokenpo-bg.jpg')] bg-cover bg-center">
-          <h2 className="text-[2.4em] text-center font-sans font-bold text-[#EFEF03] lg:translate-y-6">
+          <h2 className="text-[2.4em] text-center font-bold text-[#EFEF03] lg:translate-y-6">
             FAÇA A SUA ESCOLHA!
           </h2>
           <div className="flex">
@@ -159,7 +159,7 @@ const Jokenpo = () => {
           {showMessage && (
             <div className="absolute bottom-0 md:right-[45%] md:bottom-[20%] lg:bottom-3 xl:bottom-[1%] right-[40%] xl:left-[35%] flex flex-col justify-center items-center w-[15em] h-[6em]">
               <HiArrowNarrowUp className="w-16 h-16 text-[#A7E63A] lg:text-[3em] text-center" />
-              <h2 className="text-[#A7E63A] font-semibold font-sans lg:text-[1.5em] text-center xl:text-[0.8em] text-[1.3em]">
+              <h2 className="text-[#A7E63A] font-semibold lg:text-[1.5em] text-center xl:text-[0.8em] text-[1.3em]">
                 Sua escolha foi{" "}
                 {playerChoice === "Stone"
                   ? "pedra"
@@ -216,7 +216,7 @@ const Jokenpo = () => {
           </div>
           <div className="absolute top-[20%]">
             <div className="flex flex-col justify-center items-center gap-8">
-              <span className="text-[2.4em] font-sans font-bold text-center text-[#EFEF03] translate-y-2">
+              <span className="text-[2.4em] font-bold text-center text-[#EFEF03] translate-y-2">
                 {runner
                   ? null
                   : winner === "USER"
