@@ -1,9 +1,5 @@
 import { useState, Activity, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useGameLogic } from "../../store/useGameLogic";
-
-import { HiArrowNarrowUp } from "react-icons/hi";
-import { TiArrowLeftThick } from "react-icons/ti";
 
 import paperImg from "../../assets/jokenpo-assets/paper.png";
 import stoneImg from "../../assets/jokenpo-assets/stone.png";
@@ -14,6 +10,8 @@ import startButton from "../../assets/jokenpo-assets/start-jokenpo.png";
 import closedHand from "../../assets/jokenpo-assets/closed-hand.png";
 import paperHand from "../../assets/jokenpo-assets/hand-paper.png";
 import scissorsHand from "../../assets/jokenpo-assets/hand-scissors.png";
+
+import Return from "../menu-components/Return";
 
 const Jokenpo = () => {
   // Começar a partida pela escolha
@@ -88,9 +86,8 @@ const Jokenpo = () => {
       {/* Seção inicial do jogo */}
       <Activity mode={isPlaying ? "hidden" : "visible"}>
         <div className="flex flex-col justify-center items-center h-screen w-full bg-cover bg-center">
-          <Link to="/" className="absolute top-0 right-0">
-            <TiArrowLeftThick className="h-[30%] w-24 text-[#EFEF03]" />
-          </Link>
+          {/* Retornar a tela principal */}
+          <Return />
           <button
             type="button"
             className="cursor-pointer mb-[4em] font-medium left-9 lg:left-0 absolute top-0 lg:translate-y-12"

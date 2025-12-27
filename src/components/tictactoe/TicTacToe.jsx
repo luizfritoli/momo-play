@@ -1,7 +1,9 @@
-import { Activity } from "react";
+import { Activity, useEffect } from "react";
+
 import { useGameLogic } from "../../store/useGameLogic";
 import { checkWinner, endGame, afterUserTurn } from "./logic";
-import { useEffect } from "react";
+
+import Return from "../menu-components/Return";
 
 const TicTacToe = () => {
   const { board, turn, setBoard, setTurn, isPlaying, setIsPlaying } = useGameLogic();
@@ -39,6 +41,8 @@ const TicTacToe = () => {
 
   return (
     <section className="h-screen w-[100%] flex justify-center items-center flex-col">
+     {/* Retornar a tela principal */}  
+       <Return />
       <Activity mode={isPlaying ? "hidden" : "visible"}>
         {checkWinner(board) === "X"
           ? "Você venceu!"

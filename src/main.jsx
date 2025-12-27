@@ -6,6 +6,7 @@ import App from "./App.jsx";
 import Jokenpo from "./components/jokenpo/Jokenpo.jsx";
 import TicTacToe from "./components/tictactoe/TicTacToe.jsx";
 import CemeteryRun from "./components/cemeteryrun/CemeteryRun.jsx";
+import MemoryGame from "./components/memorygame/MemoryGame.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
     path: "/cemeteryrun",
     element: <CemeteryRun />,
   },
+  {
+    path: "/memorygame",
+    element: <MemoryGame />
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(

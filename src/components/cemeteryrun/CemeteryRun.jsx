@@ -2,14 +2,17 @@ import { useRef, useEffect, useState } from "react";
 
 import { useRunStore } from "../../store/useRunStore";
 import { useGameLogic } from "../../store/useGameLogic";
+
 import objectImg from "../../assets/cemeteryrun-assets/teste2.png";
 
 import "./animation.css"
 import "../../main.css";
 
 import ObstacleWatcher from "./logic";
+import Return from "../menu-components/Return";
 
 const CemeteryRun = () => {
+  // Estados do jogo
   const {
     jump,
     startJump,
@@ -41,6 +44,7 @@ const CemeteryRun = () => {
     }, 300);
   };
 
+  // Contador de pontos do jogo
   useEffect(() => {
     if (!isPlaying) return;
 
@@ -105,7 +109,11 @@ const CemeteryRun = () => {
           </button>
         )}
         {/* Contador de pontos */}
-        {isPlaying && <span className="top-[10%] left-1/2 -translate-x-1/2 -translate-y-1/2 absolute text-[4em]">{counter}</span>}
+        {isPlaying && (
+          <span className="top-[10%] left-1/2 -translate-x-1/2 -translate-y-1/2 absolute text-[4em]">
+            {counter}
+          </span>
+        )}
         {/* Personagem */}
         <div
           className={`transition-all mb-0 pb-0 items-start ml-[4.5%] ease-[cubic-bezier(0.3,0,0.6,1)] duration-100 
@@ -138,12 +146,16 @@ const CemeteryRun = () => {
       </div>
       {/* Chão */}
       <div className="h-[20%] w-full mt-0 pt-0 bg-neutral-800">
+        {/* Retornar a tela principal */}
+        <Return />
+        {/* Telinha de fim de jogo */}
         {gameover && (
           <div className="absolute w-[40%] bg-red-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-            <span className="text-[5em]">FIM DE JOGO</span><br/>
+            <span className="text-[5em]">FIM DE JOGO</span>
+            <br />
             <span className=" w-full text-[#FFF]">Você fez {counter} pontos!</span>
             <button
-            className="w-full cursor-pointer text-[#FFF] text-[2.5em] pt-6"
+              className="w-full cursor-pointer text-[#FFF] text-[2.5em] pt-6"
               onClick={() => {
                 resetGameOver();
               }}
