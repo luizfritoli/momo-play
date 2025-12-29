@@ -147,7 +147,7 @@ const CemeteryRun = () => {
       {/* Chão */}
       <div className="h-[20%] w-full mt-0 pt-0 bg-neutral-800">
         {/* Retornar a tela principal */}
-        <Return />
+        {!isPlaying && <Return /> }
         {/* Telinha de fim de jogo */}
         {gameover && (
           <div className="absolute w-[40%] bg-red-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
