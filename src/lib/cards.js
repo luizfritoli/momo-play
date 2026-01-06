@@ -1,16 +1,4 @@
-const shuffle = (cards) => {
-      let arr = [...cards]
-
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-
-      return arr
-    }
-
-const cards = [
+export const cards = [
     {
         id: 1,
         card: "Object 1",
@@ -156,5 +144,3 @@ const cards = [
         inGame: true,
     },
 ]
-
-export const shuffledCards = shuffle(cards)

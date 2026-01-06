@@ -40,7 +40,7 @@ const TicTacToe = () => {
   }, [board, turn, setTurn, setBoard]);
 
   return (
-    <section className="h-screen w-[100%] flex justify-center items-center flex-col">
+    <section className="select-none h-screen w-[100%] flex justify-center items-center flex-col">
      {/* Retornar a tela principal */}  
        <Return />
       <Activity mode={isPlaying ? "hidden" : "visible"}>

@@ -36,12 +36,15 @@ export const checkWinner = (board, winner) => {
 
 export const afterUserTurn = (turn, setTurn, setBoard, board, setIsPlaying) => {
   let winner = null;
+
   winner = checkWinner(board);
+
   if (winner) {
     setTurn(null);
     endGame(setTurn, winner, setIsPlaying);
     return;
   }
+  
   if (turn === "COMPUTER-TURN") {
     // Opções de 8 casas do TicTaeToe para escolha aleatória
     const pcOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8];

@@ -1,13 +1,26 @@
 import { create } from "zustand";
-import { shuffledCards } from "../lib/cards";
+import { cards } from "../lib/cards";
 
 const checkPair = (flippedCards) => {
   return flippedCards[0].pair === flippedCards[1].pair;
 };
 
+const shuffle = (cards) => {
+      let arr = [...cards]
+
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+
+      return arr
+    }
+
 
 export const useMemoryStore = create((set, get) => ({
-  cards: shuffledCards,
+  cards: shuffle(cards),
+  gameover: false,
   flippedCards: [],
 
   flipCard: (id) => {
@@ -74,5 +87,35 @@ export const useMemoryStore = create((set, get) => ({
         flippedCards,
       };
     });
+  },
+
+  // Jogo finalizado: cartas embaralhadas novamente e gameover ativo
+  endGame: () => {
+    set((state) => {
+      return {
+        cards: shuffle(cards),
+        gameover: true,
+        flippedCards: [],
+      }
+    })
+  },
+
+  // Desativar o gameover
+  resetGameover: () => {
+    set((state) => {
+      return {
+        gameover: false
+      }
+    })
+  },
+
+  // Ao sair do jogo pela setinha
+  quitGame: () => {
+    set((state) => {
+      return {
+        cards: shuffle(cards),
+        flippedCards: [],
+      }
+    })
   },
 }));

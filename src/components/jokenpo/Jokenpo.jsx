@@ -82,7 +82,7 @@ const Jokenpo = () => {
   }, [showMessage]);
 
   return (
-    <section className="flex flex-col justify-center items-center h-screen bg-cover bg-center bg-[url('/images/mobile-jokenpo-bg-full.jpg')] lg:bg-[url('/images/pc-jokenpo-bg-full.jpg')] w-full">
+    <section className="select-none flex flex-col justify-center items-center h-screen bg-cover bg-center bg-[url('/images/mobile-jokenpo-bg-full.jpg')] lg:bg-[url('/images/pc-jokenpo-bg-full.jpg')] w-full">
       {/* Seção inicial do jogo */}
       <Activity mode={isPlaying ? "hidden" : "visible"}>
         <div className="flex flex-col justify-center items-center h-screen w-full bg-cover bg-center">

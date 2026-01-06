@@ -89,7 +89,7 @@ const CemeteryRun = () => {
   }, [jump, isPlaying]);
 
   return (
-    <section className="h-screen flex flex-col w-full max-h-[100%] overflow-hidden">
+    <section className="select-none h-screen flex flex-col w-full max-h-[100%] overflow-hidden">
       {/* Início do cenário */}
       <div
         className="h-[80%] bg-violet-500 items-end flex w-full relative"
